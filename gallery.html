@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gallery | MAXWELL BAKERY</title>
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--brown:#5a2d1d;--dark:#24110b;--gold:#d7a33d;--light:#fffaf3;--muted:#765f54}
+html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:var(--light);color:#2b1811;line-height:1.65}
+.container{width:min(1160px,92%);margin:auto}
+.navbar{background:rgba(36,17,11,.98);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 5px 20px #0002}
+.nav-content{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:Georgia,serif;font-size:1.35rem;font-weight:bold;color:#fff;text-decoration:none;white-space:nowrap}.logo span{color:var(--gold)}
+.nav-links{list-style:none;display:flex;gap:16px;flex-wrap:wrap}.nav-links a{color:#fff;text-decoration:none;font-size:.9rem;padding:10px 0}.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.menu{display:none;background:none;border:0;color:white;font-size:28px;cursor:pointer}
+.hero,.page-header{background:linear-gradient(90deg,#24110be8,#24110b85),url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1800&q=85') center/cover;color:white}
+.hero{min-height:570px;display:flex;align-items:center;padding:80px 0}.hero-content{max-width:760px}.eyebrow{display:inline-block;background:var(--gold);color:var(--dark);padding:7px 15px;border-radius:30px;font-weight:bold;font-size:.82rem;margin-bottom:18px}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.2}.hero h1{font-size:clamp(2.7rem,7vw,5.6rem);margin-bottom:20px}.hero h1 span{color:var(--gold)}.hero p{max-width:680px;color:#f8ece4;margin-bottom:24px}
+.page-header{min-height:270px;display:grid;place-items:center;text-align:center;padding:45px 20px}.page-header h1{font-size:clamp(2.4rem,6vw,4rem)}.page-header p{margin-top:12px;color:#f3e5dc}
+.btn{display:inline-block;background:var(--gold);color:var(--dark);border:2px solid var(--gold);padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:bold;cursor:pointer;margin:5px 5px 5px 0}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0002}.btn-outline{background:transparent;color:white}
+.section{padding:72px 0}.section-title{text-align:center;margin-bottom:38px}.section-title h2{font-size:clamp(2rem,4vw,2.8rem);color:var(--brown);margin-bottom:10px}.section-title p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px #46231412;transition:.25s}.card:hover{transform:translateY(-6px);box-shadow:0 16px 35px #46231422}.card img{width:100%;height:230px;object-fit:cover;display:block}.card-body{padding:22px}.card h3{color:var(--brown);font-size:1.45rem;margin-bottom:9px}.card p{color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}.split img{width:100%;height:420px;object-fit:cover;border-radius:18px}.split h2{font-size:2.6rem;color:var(--brown);margin:10px 0 18px}.split p{color:var(--muted);margin-bottom:14px}.small-heading{color:#ae7716;font-weight:bold;letter-spacing:2px;font-size:.8rem}
+.cta{text-align:center;background:#e6b54d;padding:65px 20px}.cta h2{font-size:2.5rem;margin-bottom:12px}.cta p{max-width:650px;margin:0 auto 18px}
+.form-box{background:#fff;padding:30px;border-radius:18px;box-shadow:0 12px 35px #0001;max-width:850px;margin:auto}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.form-group{margin-bottom:12px}.form-group.full{grid-column:1/-1}.form-group label{display:block;font-weight:bold;color:var(--brown);margin-bottom:6px}.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px;border:1px solid #d9cec8;border-radius:9px;font:inherit}.form-group textarea{min-height:130px;resize:vertical}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.gallery-item{position:relative;overflow:hidden;border-radius:15px}.gallery-item img{width:100%;height:270px;object-fit:cover;display:block;transition:.3s}.gallery-item:hover img{transform:scale(1.05)}.gallery-item h3{padding:12px;background:#24110b;color:white}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}.contact-card{background:white;padding:22px;border-radius:13px;margin:14px 0;box-shadow:0 8px 25px #0001}.contact-card h3{color:var(--brown);margin-bottom:4px}.map{width:100%;height:330px;border:0;border-radius:16px;margin-top:28px}
+.footer{background:var(--dark);color:#fff;padding:45px 0 18px;margin-top:0}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.footer h3{color:var(--gold);margin-bottom:12px}.footer p,.footer a{color:#d7c8c1}.footer ul{list-style:none}.footer li{margin:6px 0}.footer a{text-decoration:none}.footer a:hover{color:var(--gold)}.footer-bottom{text-align:center;border-top:1px solid #ffffff26;margin-top:30px;padding-top:16px;color:#bba9a0}
+@media(max-width:900px){.menu{display:block}.nav-content{flex-wrap:wrap;padding:14px 0}.nav-links{display:none;flex-direction:column;width:100%;gap:4px;padding:10px 0}.nav-links.open{display:flex}.nav-links a{display:block;padding:8px 0}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.split,.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid,.gallery,.form-grid,.footer-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}.hero{min-height:520px}.section{padding:52px 0}.split img{height:290px}.card img{height:220px}.page-header{min-height:220px}}
+
+</style></head><body>
+<nav class="navbar"><div class="container nav-content"><a class="logo" href="index.html">MAXWELL <span>BAKERY</span></a><button class="menu" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button><ul class="nav-links"><li><a href="index.html" class="">Home</a></li>
+<li><a href="about.html" class="">About</a></li>
+<li><a href="products.html" class="">Products</a></li>
+<li><a href="cakes.html" class="">Cakes</a></li>
+<li><a href="services.html" class="">Services</a></li>
+<li><a href="gallery.html" class="active">Gallery</a></li>
+<li><a href="order.html" class="">Order</a></li>
+<li><a href="contact.html" class="">Contact</a></li></ul></div></nav>
+<main><header class="page-header"><div><h1>A Visual Taste Of MAXWELL BAKERY</h1><p>Browse inspiration from bread, cakes, pastries and bakery environments.</p></div></header><section class="section"><div class="container"><div class="grid"><article class="card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85" alt="Fresh Bread" loading="lazy"><div class="card-body"><h3>Fresh Bread</h3><p>A bakery favourite.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85" alt="Chocolate Cake" loading="lazy"><div class="card-body"><h3>Chocolate Cake</h3><p>For a sweet celebration.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85" alt="Doughnuts" loading="lazy"><div class="card-body"><h3>Doughnuts</h3><p>A delicious treat.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85" alt="Golden Pastries" loading="lazy"><div class="card-body"><h3>Golden Pastries</h3><p>Fresh bakery inspiration.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=85" alt="Cookies" loading="lazy"><div class="card-body"><h3>Cookies</h3><p>Perfect for sharing.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=85" alt="Wedding Cake" loading="lazy"><div class="card-body"><h3>Wedding Cake</h3><p>For memorable occasions.</p></div></article></div></div></section><section class="cta"><h2>Ready to Order?</h2><p>Contact us to confirm availability and discuss your requirements.</p><a class="btn" href="order.html">Place an Order</a></section></main>
+<footer class="footer"><div class="container footer-grid"><div><h3>MAXWELL BAKERY</h3><p>Freshly baked goodness for Masaka City and beyond. Quality, creativity and friendly service.</p></div><div><h3>Quick Links</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="cakes.html">Cakes</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="order.html">Order</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><h3>Contact</h3><p>Masaka City, Uganda</p><p>0760 396 687</p><p>info@maxwellbakery.com</p></div></div><div class="container footer-bottom">© 2026 MAXWELL BAKERY. All rights reserved.</div></footer>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const menuButton = document.querySelector('.menu');
+  const nav = document.querySelector('.nav-links');
+  if (menuButton && nav) {
+    menuButton.addEventListener('click', function () {
+      const opened = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(opened));
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+  }
+});
+
+
+</script></body></html>
